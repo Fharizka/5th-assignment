@@ -25,11 +25,16 @@ const getLastName = (first) => {
 
 
 const handleOnClick = () => {
-  var a = getFirstName().then(first => getLastName(first))
-  var b = a.then(hasil => {
-      document.querySelector("#hasil").innerText = hasil
+  try {
+    console.log("Clicked.....")
+    var a = getFirstName().then(first => getLastName(first))
+    var b = a.then(hasil => {
+    document.querySelector("#hasil").innerText = hasil
   })
-  Promise.all([a,b]).then(console.log(`Clicking...`))
+  Promise.all([a,b]).then(console.log(`berhasil, tunggu 6 detik yah`))
+  } catch (error){
+    document.querySelector("#hasil").innerText = "gagal"
+  }
 }
 
 
@@ -75,8 +80,8 @@ const handleOnClick = () => {
 
 
 
-// ===========================
-// 2.b. Promise All
+// // ===========================
+// // 2.b. Promise All
 
 const getUser = (id) => {
   return new Promise((resolve, reject) => {
@@ -103,8 +108,6 @@ const getUser = (id) => {
   });
 }
 
-
-
 const handleOnClick = () => {
   console.log("Clicked...");
   Promise.all([getUser(11)])
@@ -118,8 +121,8 @@ const handleOnClick = () => {
 }
 
 
-// ===========================
-// 2.c. Async Await
+// // ===========================
+// // 2.c. Async Await
 
 
 const getUser = (id) => {
